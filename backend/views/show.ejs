@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicine Details</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-4 text-purple-600">Medicine Details</h1>
+
+    <% if (result) { %>
+      <p><span class="font-semibold">Medicine Name:</span> <%= result.medicine_name %></p>
+
+      <% if (result.generic_names && result.generic_names.length) { %>
+        <p class="mt-2"><span class="font-semibold">Generic Names:</span> <%= result.generic_names.join(", ") %></p>
+      <% } %>
+        
+        <% if (result.generic_name && result.generic_name.length) { %>
+        <p class="mt-2"><span class="font-semibold">Generic Names:</span> <%= result.generic_name.join(", ") %></p>
+      <% } %>
+
+      <% if (result.usage && result.usage.length) { %>
+        <div class="mt-4">
+          <span class="font-semibold">Usage:</span>
+          <ul class="list-disc list-inside text-gray-700">
+            <% for (let i = 0; i < result.usage.length; i++) { %>
+              <li><%= result.usage[i] %></li>
+            <% } %>
+          </ul>
+        </div>
+      <% } %>
+
+      <% if (result.warnings) { %>
+        <p class="mt-4"><span class="font-semibold">Warnings:</span> <%= result.warnings %></p>
+      <% } %>
+
+
+    <% } else { %>
+      <p class="text-red-500">No details found.</p>
+    <% } %>
+
+    <div class="mt-6">
+      <a href="/" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">Search Again</a>
+    </div>
+  </div>
+
+</body>
+</html>
