@@ -26,3 +26,27 @@ node_modules/
 *.njsproj
 *.sln
 *.sw?
+
+
+# --- Project Specific ---
+# Ignore the environment file inside the backend folder
+backend/.env
+
+# Ignore build artifacts from the backend if any
+backend/dist/
+
+# --- Bun & Lock Files ---
+# Since you have bun.lockb, ignore other lockfiles to keep it clean
+# (Optional: keep package-lock.json if you use both, but usually pick one)
+# yarn.lock
+# package-lock.json
+
+# --- Vite/TypeScript ---
+# Ignore the temporary Vite config files seen in your file list
+vite.config.ts.timestamp-*
+*.mjs
+*.cjs
+
+# --- Database/Supabase ---
+# If you ever pull supabase local configs
+.supabase/
