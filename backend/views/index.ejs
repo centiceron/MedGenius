@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medicine Info</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-2xl bg-white p-6 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-4 text-purple-600">
+        Medicine Info Search
+      </h1>
+
+      <!-- Search Form -->
+      <form
+        action="/api/n8n/medicine"
+        method="POST"
+        class="flex mb-6 space-x-2"
+      >
+        <input
+          type="text"
+          name="chatInput"
+          placeholder="Enter medicine name"
+          class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+        >
+          Search
+        </button>
+      </form>
+
+      <!-- Error -->
+      <% if (error) { %>
+      <p class="text-red-500 mb-4"><%= error %></p>
+      <% } %>
+    </div>
+  </body>
+</html>
